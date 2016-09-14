@@ -10,3 +10,12 @@ Feel free to join and collaborate.  Please be courteous and helpful.
 Attitude free zone.  
 
 Thanks!
+
+
+
+MileStones: 
+
+1. Initial Setup
+2. Really Basic Calculator
+3. Bind Buttons to Calculator
+4. Add More functionality to Calculator

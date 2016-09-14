@@ -7,11 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Window.DataContext>
-        <local:MainWindowVM/>
+        <local:MainWindowVM />
     </Window.DataContext>
     <Grid>
         <DockPanel>
-            <Label Content="{Binding title}"/>
+            <Label Content="{Binding title}" DockPanel.Dock="Top" />
+            <!--This is just temporary.  These buttons wil be programatically built by using a collection of button made on the ViewModel (VM) side.-->
+            <UniformGrid Columns="3">
+                <Button Content="Sample Button" Command="{Binding commandButton}" CommandParameter="sampleButton" />
+                <Button Content="Sample Button" Command="{Binding commandButton}" CommandParameter="sampleButton" />
+                <Button Content="Sample Button" Command="{Binding commandButton}" CommandParameter="sampleButton" />
+                <Button Content="Sample Button" Command="{Binding commandButton}" CommandParameter="sampleButton" />
+            </UniformGrid>
         </DockPanel>
     </Grid>
 </Window>

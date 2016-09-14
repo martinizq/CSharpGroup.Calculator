@@ -50,11 +50,12 @@ namespace CSharpGroup.Calculator
 
         private void BuildCommandButtonDictionary()
         {
-            _commandSwitch.Add("cmdParameter", CmdMethod);
+            _commandSwitch.Add("sampleButton", SampleButton);
         }
 
-        public void CmdMethod()
+        public void SampleButton()
         {
+            title = "You pressed my button!";
         }
     }
 }
