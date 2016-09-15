@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpGroup.Calculator", "CSharpGroup.Calculator\CSharpGroup.Calculator.csproj", "{D114D0F6-2E97-405B-AA00-9FED26AA9680}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpGroup.Visuals", "CSharpGroup.Visuals\CSharpGroup.Visuals.csproj", "{D114D0F6-2E97-405B-AA00-9FED26AA9680}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpGroup.Helper", "CSharpGroup.Helper\CSharpGroup.Helper.csproj", "{F9942FE4-A328-445A-B870-D3C5F17A705F}"
 EndProject

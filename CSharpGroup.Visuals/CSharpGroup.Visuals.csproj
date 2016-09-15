@@ -63,6 +63,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="EntryKey.cs" />
     <Compile Include="MainWindowV.xaml.cs">
       <DependentUpon>MainWindowV.xaml</DependentUpon>
       <SubType>Code</SubType>

@@ -1,0 +1,46 @@
+﻿<Window x:Class="CSharpGroup.Calculator.MainWindowV"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CSharpGroup.Calculator"
+        mc:Ignorable="d"
+        Title="{Binding title}" Height="350" Width="525">
+    <Window.DataContext>
+        <local:MainWindowVM />
+    </Window.DataContext>
+    <Grid>
+        <DockPanel>
+            <Label Content="{Binding userEntry}" DockPanel.Dock="Top" HorizontalAlignment="Right" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".7*" />
+                    <ColumnDefinition Width=".3*" />
+                </Grid.ColumnDefinitions>
+
+                <UniformGrid Columns="1" DockPanel.Dock="Right" Grid.Column="1">
+                    <Button Content="+" />
+                    <Button Content="-" />
+                    <Button Content="*" />
+                    <Button Content="/" />
+                    <Button Content="=" />
+                </UniformGrid>
+
+                <ItemsControl>
+                    <ItemsControl ItemsSource="{Binding numberKeyList}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Button Height="70" Content="{Binding caption}" Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type ItemsControl}},Path=DataContext.commandButton}" CommandParameter="{Binding caption}" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Columns="3" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </ItemsControl>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>

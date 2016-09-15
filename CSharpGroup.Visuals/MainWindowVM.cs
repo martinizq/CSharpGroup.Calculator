@@ -1,6 +1,7 @@
 ﻿using CSharpGroup.Helper;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 
 namespace CSharpGroup.Calculator
@@ -22,7 +23,10 @@ namespace CSharpGroup.Calculator
                 return _commandButton;
             }
         }
+
+        private Dictionary<string, Action<int>> _numberSwitch = new Dictionary<string, Action<int>>();
         private Dictionary<string, Action> _commandSwitch = new Dictionary<string, Action>();
+        public ObservableCollection<EntryKey> numberKeyList { get; set; } = new ObservableCollection<EntryKey>();
 
         private string _title = "Future Calculator";
         public string title
@@ -37,25 +41,47 @@ namespace CSharpGroup.Calculator
                 }
             }
         }
+        private string _userEntry;
+        public string userEntry
+        {
+            get { return _userEntry; }
+            set
+            {
+                if (_userEntry != value)
+                {
+                    _userEntry = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         public MainWindowVM()
         {
+            BuildButtons();
             BuildCommandButtonDictionary();
+        }
+
+        private void BuildButtons()
+        {
+            for (int i = 9; i > 0; i--)
+                numberKeyList.Add(new EntryKey(i.ToString()));
         }
 
         public void CommandButton(string command)
         {
-            _commandSwitch[command].Invoke();
+            int value;
+            if (int.TryParse(command, out value))
+
+                _numberSwitch[command].Invoke(value);
+            else
+
+                _commandSwitch[command].Invoke();
         }
 
         private void BuildCommandButtonDictionary()
         {
-            _commandSwitch.Add("sampleButton", SampleButton);
-        }
-
-        public void SampleButton()
-        {
-            title = "You pressed my button!";
+            for (int i = 9; i > 0; i--)
+                _numberSwitch.Add(i.ToString(), (value) => { userEntry= value.ToString(); });
         }
     }
 }
